@@ -1,0 +1,10 @@
+<h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+<!-- Código entre '< %  %>' é executado mas não imprime nada na GUI -->
+<!-- Código entre '< %=  %>' é executado e imprime a saída na GUI -->
+<% [1,2,3,4,5].each do |number| %>
+    <p>Número: <%= number * 2 %></p>
+<%end%> <!--Sempre devemos encerrar a lógica Ruby com esse comando se houver tags HTML entre < % %>-->
+
+<% mundo = 'Bode'%>
+<%= "Hola #{mundo}" %>
