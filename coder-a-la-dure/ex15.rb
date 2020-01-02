@@ -1,15 +1,16 @@
 filename = ARGV.first 
 
-teste = open(filename)
+test = open(filename)
 
 puts "Here's your file #{filename}:"
-print teste.read
+print test.read
 
 print "\nType the filename again: "
 file_again = $stdin.gets.chomp
 
-teste_again = open(file_again)
+test_again = open(file_again)
+puts "Here's your file #{file_again}:"
+print test_again.read
 
-print teste_again.read
-
-close(file_again)
+test.close
+test_again.close

@@ -1,11 +1,12 @@
-# make a simple little text editor.
-filename =  ARGV.first
+# this program emulates a simple text editor.
+# >ruby ex16.rb File
+filename =  ARGV.first 
 
 puts "We're going to erase #{filename}"
 puts "If you don't want that, hit CTRL+C (press in the given order)."
 puts "If you do want that, hit RETURN."
 
-# e como trabalhar com o ASCII como nos bons tempos de C?
+# standart input and gets function
 $stdin.gets
 
 puts "Opening the file..."
@@ -16,27 +17,29 @@ target.truncate(0)
 
 puts "Now I'm going to ask you for three lines."
 
-#TO_DO: use a for instead of this floppy code.
-print "line 1: "
-line1 = $stdin.gets.chomp
-print "line 2: "
-line2 = $stdin.gets.chomp
-print "line 3: "
-line3 = $stdin.gets.chomp
+lines = []
+count=0
+
+until count == 3
+    #string interpolation
+    print "line #{count + 1}:"
+    input = $stdin.gets.chomp
+    lines.push input
+    count+=1
+end
+
 
 puts "I'm going to write these to the file."
 
-#Serious dude, loop this.
-target.write(line1)
-target.write("\n")
-target.write(line2)
-target.write("\n")
-target.write(line3)
-target.write("\n")
+count=0
+until count == 3
+    target.write(lines[count] + "\n")
+    count+=1
+end
 
 puts "And finally, we close it."
 target.close
-
+# >cat File
 =begin
     
 a.If you do not understand this, go back through and use the comment trick to get it squared away in your mind. One simple English comment above each line will help you understand or at least let you know what you need to research more.
